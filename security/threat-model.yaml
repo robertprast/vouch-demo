@@ -1,0 +1,48 @@
+repo: robertprast/vouch-demo
+schema_version: 0
+claims:
+  - id: GHSA-9pv9-5p7w-pw9g
+    subsystem: auth
+    bug_class: CWE-287
+    status: covered
+    ghsa: GHSA-9pv9-5p7w-pw9g
+    summary: Auth bypass in login (forged token)
+    two_evidence:
+      source_trace: true
+      harness: true
+  - id: GHSA-5v42-8xqw-xw77
+    subsystem: auth
+    bug_class: CWE-287
+    status: covered
+    ghsa: GHSA-5v42-8xqw-xw77
+    summary: Authentication bypass via crafted session token
+    two_evidence:
+      source_trace: false
+      harness: false
+  - id: GHSA-fxww-fqj8-chfj
+    subsystem: pars
+    bug_class: CWE-78
+    status: covered
+    ghsa: GHSA-fxww-fqj8-chfj
+    summary: OS command injection in log archive CLI allows arbitrary command execution
+    two_evidence:
+      source_trace: false
+      harness: false
+  - id: GHSA-j8r3-wp5g-2p3w
+    subsystem: pars
+    bug_class: CWE-78
+    status: covered
+    ghsa: GHSA-j8r3-wp5g-2p3w
+    summary: OS command injection in logtool archive allows arbitrary command execution
+    two_evidence:
+      source_trace: false
+      harness: false
+closed:
+  - id: LEAD-tar-symlink-escape
+    subsystem: archive
+    bug_class: CWE-59
+    status: refuted
+    why: >-
+      symlink targets are resolved via SecureJoin before extraction; naive-join escape is contained
+      at the extract boundary
+    reopen_trigger: a new extraction path that skips SecureJoin, or a SecureJoin bypass
